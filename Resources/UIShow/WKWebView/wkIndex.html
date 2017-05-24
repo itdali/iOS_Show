@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>iOS and Js</title>
+        <style type="text/css">
+            * {
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <div style="margin-top: 100px">
+            <h1>iOS JS</h1><br/>
+            <div><input type="button" value="call js alert" onclick="callJsAlert()"></div>
+            <br/>
+            <div><input type="button" value="Call js confirm" onclick="callJsConfirm()"></div><br/>
+        </div>
+        <br/>
+        <div>
+            <div><input type="button" value="Call Js prompt " onclick="callJsInput()"></div><br/>
+            <div>Click me here: <a href="http://www.baidu.com">Jump to Baidu</a></div>
+        </div>
+        
+        <div>
+            <div><input type="button" value="JSFunction" onclick="JSFunction()"></div><br/>
+        </div>
+        
+        <br/>
+        <div id="SwiftDiv">
+            <span id="jsParamFuncSpan" style="color: red; font-size: 50px;"></span>
+        </div>
+        
+        <div>
+            <button onclick="svcFunc();">get server data by iOS</button>
+        </div>
+        
+        
+        <script>
+            
+        (function(){
+             console.log("this is index.html");
+             })();
+        function callJsAlert() {
+                 alert('call js to show alert');
+                 
+                 window.webkit.messageHandlers.AppModel.postMessage({body: 'call js alert in js'});
+             }
+        
+        function callJsConfirm() {
+            if (confirm('confirm', 'call js to show confirm')) {
+                document.getElementById('jsParamFuncSpan').innerHTML
+                = 'true';
+            } else {
+                document.getElementById('jsParamFuncSpan').innerHTML
+                = 'false';
+            }
+            console.log("123321 - callJsConfirm");
+            
+            window.webkit.messageHandlers.AppModel.postMessage({body: 'call js confirm in js'});
+        }
+        
+        function callJsInput() {
+            var response = prompt('Hello', 'Please input your name:');
+            document.getElementById('jsParamFuncSpan').innerHTML = response;
+            
+            window.webkit.messageHandlers.AppModel.postMessage({body: response});
+        }
+        
+        function JSFunction() {
+            window.webkit.messageHandlers.JSFunction.postMessage({body: "Hello,Dali"});
+        };
+        function svcFunc() {
+            var jsonStr = {
+                "name": "dali",
+                "age": "18"
+            };
+            window.webkit.messageHandlers.svcFunc.postMessage({
+                                                                body: jsonStr
+                                                                });
+        }
+        function serviceReturn(param) {
+            var abc = JSON.stringify(param);
+            console.log(param);
+            alert(abc);
+        }
+        </script>
+    </body>
+</html>
+

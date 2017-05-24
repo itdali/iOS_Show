@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WKWebView</title>
+        <style type="text/css">
+            * {
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div align="center" style="color:orange;">
+            <p>WKWebView</p>
+        </div>
+
+        <div>
+            <p id="p_1">test for js enabled</p>
+        </div>
+        
+        <div>
+            <button onclick="window.open('WKWebView2.html');">open window</button>
+        </div>
+        
+        
+        <script>
+            (function(){
+                console.log("this is WKWebView.html");
+
+                // 更改 p_1 的文本
+                document.getElementById("p_1").childNodes[0].nodeValue = "1234";
+            })();
+
+        </script>
+    </body>
+</html>
+

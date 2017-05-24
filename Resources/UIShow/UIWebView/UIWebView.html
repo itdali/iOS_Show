@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UI Web View</title>
+        <style type="text/css">
+            * {
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div align="center" style="color:orange;">
+            UI Web View 2
+        </div>
+        
+        
+        <div>
+            <p>UIWebViewNavigationType</p>
+            <ul>
+                <li>
+                    linkClicked: <a href="http://www.baidu.com">baidu</a>
+                </li>
+                <li>
+                    formSubmitted:
+                    <form>
+                        <input placeholder="input">
+                        <input type="submit">
+                    </form>
+                </li>
+                <li>
+                    backForward: <a href="UIWebView2.html">nextPage</a>
+                </li>
+                <li>
+                    reload: <button onclick="window.location.reload();">reload</button>
+                </li>
+                <li>
+                    formResubmitted: don't know how to realize
+                </li>
+                <li>
+                    other: It is 'other' when the page is opened
+                </li>
+            </ul>
+        </div>
+        
+        <div>
+            <button onclick="alert("test");">alert</button>
+        </div>
+        
+        <script>
+        (function(){
+         console.log("this is index.html");
+         //alert("UI Web View");
+         })();
+       
+        </script>
+    </body>
+</html>
+
